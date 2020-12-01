@@ -1,2 +1,2 @@
 # PScann
-Port Scanner
+Simple python-based port scanner.
