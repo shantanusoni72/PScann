@@ -3,11 +3,17 @@ import sys
 import time
 import threading
 import pyfiglet
-bS = pyfiglet.figlet_format("Pscann")
-print(bS)
-print("				Code by: Shaan453")
+def banner():
+	print(pyfiglet.figlet_format("Pscann"))
+	print("				Code by: Shaan453")
+	print("                                Version: 2021.3.2")
+banner()
 fileName = ""
 lineOfList = "Port scan report \n "
+def scanning():
+	for port in range(startingPort,endingPort+1):
+		Thread = threading.Thread(target = scanPorts,args=(port,))
+		Thread.start()
 def scanPorts(port):
 	con = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	final = con.connect_ex((target,port))
@@ -33,24 +39,20 @@ def saveFile(fileName):
 	save.close()
 
 usage = "Usage: Pscann.py <IP-ADDRESS> <STARTING-PORT> <ENDING-PORT>"
-target = socket.gethostbyname(sys.argv[1])
-startingPort = 0
-endingPort = 0
-if sys.argv[2] == "-sF":
-	endingPort = 1000
-if sys.argv[2] == "-sH":
-	endingPort = 500
-if sys.argv[2] == "-sB":
-	endingPort = 100
-else:
-	pass
-
-if sys.argv[2] == "--help":
+if len(sys.argv) == 1 or sys.argv[1] == "--help":
 	fileHelp = open("help.txt","r")
 	print(fileHelp.read())
 else:
-	pass
-
-for port in range(startingPort,endingPort+1):
-	Thread = threading.Thread(target = scanPorts,args=(port,))
-	Thread.start()
+	target = socket.gethostbyname(sys.argv[1])
+	startingPort = 0
+	endingPort = 0
+	if len(sys.argv) == 2 or len(sys.argv) == 1:
+		print(usage)
+		sys.exit()
+	if sys.argv[2] == "-sF":
+		endingPort = 1000
+	if sys.argv[2] == "-sH":
+		endingPort = 500
+	if sys.argv[2] == "-sB":
+		endingPort = 100
+	scanning()
