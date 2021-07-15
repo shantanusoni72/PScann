@@ -1,7 +1,7 @@
 # PScann
 Simple python-based port scanner. Pscann is capable of scanning system ports.
 
-Current version avaiable is 2021.3.2.
+Current version avaiable is 2021.5.3.
 ### Installation
 1. `git clone https://github.com/shaan453/PScann.git`
 2. `cd pscann`
