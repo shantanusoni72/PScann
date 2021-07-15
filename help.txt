@@ -1,6 +1,6 @@
 [*] Usage: pscann.py <target> <option(s)>
    Option(s):
-	-sF: 		Full scan. Scan 1000 ports.
-	-sH: 		Half scan. Scan 500 ports.
-	-sB: 		Baby scan. Scan 100 ports.
+	-sF: 		Full scan. Scan 63000 ports.
+	-sH: 		Half scan. Scan 30000 ports.
+	-sB: 		Baby scan. Scan 1000 ports.
 	--help:		Display help.
