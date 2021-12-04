@@ -1,5 +1,8 @@
 # PScann
-Simple python-based port scanner. Pscann is capable of scanning system ports.
+NPScann is a network security tool for discovering hosts, services and system ports on
+a computer network by sending packets and analyzing the responses.
+
+Tech Stack: Python, Python Networking Modules.
 
 Current version avaiable is 2021.5.3.
 ### Installation
