@@ -2,6 +2,10 @@ import sys
 import socket
 import threading
 import datetime
+import pyfiglet
+
+def design_banner():
+    print(pyfiglet.figlet_format("PScann"))
 
 def banner():
 	return '-------------------------------------Pcann-2021.5.3-Scan-----------\n'+'-'*41+str(datetime.datetime.now())
@@ -22,23 +26,11 @@ def scanPorts(target,port):
         else:
             portSet = "Port {} is open".format(port)
             print(portSet)
-            if sys.argv[-2] == "-o":
-                file = open(sys.argv[-1]+".txt","a")
-                file.write(portSet+"\n")
-                file.close()
-            else:
-                pass
             con.close()
 
 def saveFile(fileName):
     fileName = ""
     lineOfList = "Port scan report \n"
-    try:
-        save = open(fileName,"a")
-    except:
-        print("File not found")
-    save.write(lineOfList)
-    save.close()
 
 def mode(target, option):
     startingPort = 0
